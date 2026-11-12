@@ -10,7 +10,8 @@ from dataclasses import dataclass
 from math import isfinite, pi
 
 import numpy as np
-from scipy.optimize import brentq
+f# The deployment type checker lacks SciPy's optional type stubs.
+from scipy.optimize import brentq  # type: ignore[import-untyped]
 
 from drafter import (
     Page,
