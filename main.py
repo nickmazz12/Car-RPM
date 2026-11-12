@@ -5,13 +5,11 @@ NumPy calculates speeds for multiple gears.
 SciPy numerically solves for RPM at a target speed.
 """
 
-from drafter.components.page_content import Component
 from dataclasses import dataclass
 from math import isfinite, pi
 
 import numpy as np
-f# The deployment type checker lacks SciPy's optional type stubs.
-from scipy.optimize import brentq  # type: ignore[import-untyped]
+from scipy.optimize import brentq
 
 from drafter import (
     Page,
@@ -366,7 +364,7 @@ def calculate(
 def results(state: State) -> Page:
     """Build a results table by looping over the stored Gear objects."""
     speeds = speeds_for_gears(state)
-    rows: list[list[Component | str | int | float | bool]] = []
+    rows = []
 
     for gear in state.gears:
         rpm = rpm_at_speed(
